@@ -62,9 +62,14 @@ https://medium.com/@singularitylab/create-your-decentralized-web3-dice-game-in-3
 If you have any questions or are interested in collaboration, you can contact us via Telegram or email.
 
 #### Other
-One-click Create Your Web3 Casino
-One-click Create Your Blockchain Casino
-One-click Create Your Dice Game
-One-click Create Your Gambling Game
-One-click Create Your Blockchain Dice
-One-click Create Your Web3 Dice
+Easy to Create Your Web3 Casino
+
+Easy to Create Your Blockchain Casino
+
+Easy to Create Your Dice Game
+
+Easy to Create Your Gambling Game
+
+Easy to Create Your Blockchain Dice
+
+Easy to Create Your Web3 Dice
