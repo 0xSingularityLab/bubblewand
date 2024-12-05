@@ -1,5 +1,7 @@
 [English](https://github.com/0xSingularityLab/bubblewand/blob/main/README.md) | [中文教程](https://github.com/0xSingularityLab/bubblewand/blob/main/README_ZH.md)
 
+============================================
+
 ## Create Your Decentralized Web3 Dice Game in 30 Seconds for Free
 
 Many people want to create their own Web3 blockchain casino but are often stopped by the difficulty of coding. 
