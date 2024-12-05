@@ -1,3 +1,7 @@
+[English](https://github.com/0xSingularityLab/bubblewand/blob/main/README.md) | [中文教程](https://github.com/0xSingularityLab/bubblewand/blob/main/README_ZH.md)
+
+============================================
+
 ## 30秒即可免费创建你的去中心化Web3区块链骰子赌博游戏
 
 很多人都想创建属于自己的Web3区块链赌场，但又苦于不擅长编写代码而止步。
