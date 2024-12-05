@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble Wand Launchpad</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./assets/favicon.png" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.3.5/dist/web3.min.js"></script>
+    <script src="./factoryContract.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1d1d1d;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            padding: 30px;
+            margin: auto;
+            text-align: center;
+            position: relative;
+        }
+        h1 {
+            color: #66ff66;
+            margin-top: 50px;
+            font-size: 3em;
+        }
+
+        .language-switcher {
+            position: absolute;
+            top: 100px;
+            right: 20px;
+            z-index: 10;
+        }
+
+        .language-switcher button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .language-switcher button:hover {
+            background-color: #45a049;
+        }
+
+        button {
+            padding: 15px 32px;
+            font-size: 1.2em;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 20px 10px;
+            width: auto;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+
+        .button-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 1em;
+            color: #888;
+        }
+        .styled-link {
+            color: #66ff66;
+            text-decoration: none;
+        }
+        .styled-link:hover {
+            color: #28a745;
+        }
+        .social-links a {
+            margin: 0 15px;
+            font-size: 1.5rem;
+            color: #00aced;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .social-links2 a {
+            margin: 0 15px;
+            font-size: 1.2rem;
+            color: #00aced;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .social-links a:hover {
+            color: #fff;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.5em;
+            color: #f8d777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="./assets/favicon.png" id="logopic" style="width: 80px; display: block; margin: 0 auto 20px auto;" />
+        <h1 id="pageTitle">Bubble Wand Launchpad</h1>
+        
+        <!-- Language Switcher -->
+        <div class="language-switcher">
+            <button onclick="switchLanguage('en')">English</button>
+            <button onclick="switchLanguage('zh')">中文</button>
+        </div>
+        <div class="separator"></div>
+        <div class="input-group">
+            <label id="domainTitle">Official Domain:</label>
+            <div class="social-links2">
+                <a href="https://pods.icu/" target="_blank">pods.icu</a>
+                <a href="https://bubblewand.xyz/" target="_blank">bubblewand.xyz</a>
+                <a href="https://dicegame.bet/" target="_blank">dicegame.bet</a>
+            </div>
+        </div>
+        <div class="separator"></div>
+        
+        <!-- Navigation Buttons -->
+        <div class="button-row">
+            <button id="gameDemoBtn" onclick="window.location.href='https://dicegame.bet'">Go to Game Demo(Base network)</button>
+        </div>
+
+        <div class="button-row">
+            <button id="createEthGameBtn" onclick="window.location.href='bubble.html'">Create Your Own ETH Dice Game</button>
+            <button id="createUsdtGameBtn" onclick="window.location.href='bubble_usdt.html'">Create Your Own USDT Dice Game</button>
+        </div>
+        <div class="separator"></div>
+
+        <section id="social">
+            <h2 id="section-title">Social Information</h2>
+            <div class="social-links">
+                <div class="social-icons">
+                    <br />
+                    <!-- x -->
+                    <a href="https://x.com/SingularityLabX" target="_blank">
+                        <img src="assets/twitter.png" alt="X" style="width: 30px; height: 30px; margin-left: 30px;">
+                        <span>Twitter/X</span>
+                    </a>
+                    <!-- warpcast -->
+                    <a href="https://warpcast.com/0xsingularitylab" target="_blank">
+                        <img src="assets/warpcast.png" alt="Warpcast" style="width: 30px; height: 30px; margin-left: 30px;">
+                        <span>Warpcast</span>
+                    </a>
+                    <!-- teletram -->
+                    <a href="https://t.me/slabdao" target="_blank">
+                        <img src="assets/telegram.png" alt="Telegram" style="width: 30px; height: 30px; margin-left: 30px;">
+                        <span>Telegram</span>
+                    </a>
+                    <!-- github -->
+                    <a href="https://github.com/0xSingularityLab" target="_blank">
+                        <img src="assets/github.png" alt="Github" style="width: 30px; height: 30px; margin-left: 30px;">
+                        <span>Github</span>
+                    </a>
+                    <!-- medium -->
+                    <a href="https://medium.com/@singularitylab" target="_blank">
+                        <img src="assets/medium.png" alt="Medium" style="width: 30px; height: 30px; margin-left: 30px;">
+                        <span>Medium</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <p>© 2024 Bubble Wand - Powered by <a href="https://singularitylab.top" class="styled-link">Singularity Lab</a></p>
+        </footer>
+    </div>
+
+    <script>
+        let currentLang = 'en';
+
+        function switchLanguage(lang) {
+            if (lang === 'en') {
+                document.getElementById('pageTitle').textContent = 'Bubble Wand Launchpad';
+                document.getElementById('gameDemoBtn').textContent = 'Go to Game Demo(Base network)';
+                document.getElementById('createEthGameBtn').textContent = 'Create Your Own ETH Dice Game';
+                document.getElementById('createUsdtGameBtn').textContent = 'Create Your Own USDT Dice Game';
+                document.getElementById('section-title').textContent = 'Social Information';
+                document.getElementById('domainTitle').textContent = 'Official Domain:';
+            } else {
+                document.getElementById('pageTitle').textContent = '泡泡棒发射台';
+                document.getElementById('gameDemoBtn').textContent = '游戏演示站(基于Base网络)';
+                document.getElementById('createEthGameBtn').textContent = '创建属于你的ETH骰子游戏';
+                document.getElementById('createUsdtGameBtn').textContent = '创建属于你的USDT骰子游戏';
+                document.getElementById('section-title').textContent = '社交信息';
+                document.getElementById('domainTitle').textContent = '官方域名：';
+            }
+        }
+    </script>
+</body>
+</html>

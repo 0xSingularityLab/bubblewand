@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble Wand Launchpad</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./assets/favicon.png" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.3.5/dist/web3.min.js"></script>
+    <script src="./factoryContract.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1d1d1d;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            padding: 30px;
+            margin: auto;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #66ff66;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+            color: #f8d777;
+        }
+        input[type="number"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #666;
+            border-radius: 5px;
+            background-color: #333;
+            color: white;
+            margin-bottom: 20px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 1.2em;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #666;
+            text-align: center;
+            padding: 10px;
+        }
+        th {
+            background-color: #333;
+            color: white;
+        }
+        td {
+            background-color: #444;
+            color: white;
+        }
+        .language-switcher {
+            text-align: right;
+            margin-bottom: 10px;
+        }
+        .language-switcher button {
+            margin: 0 5px;
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .language-switcher button:hover {
+            background-color: #45a049;
+        }
+        .input-group {
+            margin-bottom: 20px; 
+        }
+        input[type="radio"] {
+            width: 23px;
+            height: 23px;
+        }
+        #decentralizedGameLabel, #adminGameLabel {
+            font-size: 1.2em;
+            margin-right: 10px; 
+        }
+        .inline-options {
+            display: flex;
+            align-items: center;
+            justify-content: center; 
+            flex-wrap: wrap;
+            gap: 30px; 
+        }
+        .inline-options input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            margin-right: -25px; 
+        }
+        .inline-options label {
+            margin-right: 15px; 
+            font-size: 1.1em; 
+        }
+        .styled-link {
+            color: #007bff; 
+            text-decoration: none; 
+            margin: 0 10px; 
+            font-weight: bold; 
+            transition: color 0.3s ease, text-shadow 0.3s ease; 
+        }
+
+        .styled-link:hover {
+            color: #0056b3; 
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+            text-decoration: underline; 
+        }
+        .small-text {
+            font-size: 0.8em;
+            color: green;
+            margin-right: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="./assets/favicon.png" style="width: 80px; vertical-align: middle; margin-left: 20px;margin-bottom: 13px;" /><h1 id="factoryTitle">Create Your Dice Game</h1>
+        <div class="language-switcher">
+            <a href="https://t.me/slabdao" class="styled-link" target="_blank">
+                <img src="assets/telegram.png" alt="Telegram" style="width: 30px; height: 30px; margin-left: 30px;">
+                <span id="needHelp">Need Help?</span>
+            </a>
+            <button onclick="switchLanguage('en')">English</button>
+            <button onclick="switchLanguage('zh')">中文</button>
+        </div>
+
+        <div class="input-group">
+            <label id="networkLabel">Select Deployment Network:</label>
+            <div id="networkOptions" class="inline-options">
+                <input type="radio" name="network" value="base" checked> Base
+                <input type="radio" name="network" value="bsc"> BNBChain
+                <input type="radio" name="network" value="polygon"> Polygon
+                <input type="radio" name="network" value="optimism" disabled="disabled"> Optimism
+                <input type="radio" name="network" value="arb" disabled="disabled"> Arbitrum
+                <input type="radio" name="network" value="eth" disabled="disabled"> Ethereum
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label id="adminModeLabel">Choose Game Type:</label>
+            <input type="radio" id="adminGame" name="gameMode" value="admin" checked>
+            <span id="adminGameLabel">I Want to Be the Admin</span><span class="small-text">(0.05 ETH / 0.2 BNB / 200 POL)</span>
+            <input type="radio" id="decentralizedGame" name="gameMode" value="decentralized">
+            <span id="decentralizedGameLabel">Decentralized Game(No Admin)</span><span class="small-text">(Free)</span>
+        </div>
+
+        <div class="input-group">
+            <label id="minBetLabel">Minimum Bet (ETH / BNB / POL):</label>
+            <input type="number" id="minBet" placeholder="Default: 0.001" value="0.001">
+        </div>
+        <div class="input-group">
+            <label id="minWithdrawLabel">Minimum Withdraw (ETH / BNB / POL):</label>
+            <input type="number" id="minWithdraw" placeholder="Default: 0.01" value="0.01">
+        </div>
+        <div class="input-group">
+            <label id="maxShareholdersLabel">Maximum Shareholders(1-50):</label>
+            <input type="number" id="maxShareholders" placeholder="Default: 20" value="20">
+        </div>
+        <div class="input-group">
+            <label id="maxDepositLabel">Maximum Deposit (ETH / BNB / POL):</label>
+            <input type="number" id="maxDeposit" placeholder="Default: 10000" value="10000">
+        </div>
+
+        <div class="input-group">
+            <label id="adminFeeLabel">Set the commission charged by the administrator for each transaction (%):</label>
+            <div id="adminFeeOptions" class="inline-options">
+                <input type="radio" id="adminFee0" name="adminFee" value="0" checked>0%
+                <input type="radio" id="adminFee1" name="adminFee" value="1">0.1%
+                <input type="radio" id="adminFee3" name="adminFee" value="3">0.3%
+                <input type="radio" id="adminFee5" name="adminFee" value="5">0.5%
+                <input type="radio" id="adminFee10" name="adminFee" value="10">1%
+                <input type="radio" id="adminFee20" name="adminFee" value="20">2%
+            </div>
+        </div>            
+
+        <button id="deployGameButton" onclick="deployDestinyDice()">Deploy Game</button>
+
+        <div class="separator"></div>
+        <h2 id="DeployedTitle">Deployment Results</h2>
+        <table id="deployedContractsTable">
+            <thead>
+                <tr>
+                    <th id="gameaddressInfo">Game Contract Address</th>
+                    <th id="contractadminInfo">Contract Owner</th>
+                    <th id="downloadFrontend">Download Frontend</th>
+                    <th id="deployTime">Deployment Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="separator"></div>
+        <h2 id="myDiceTitle">My DiceGame</h2>
+        <div class="input-group">
+            <table id="myDiceTable">
+                <thead>
+                    <tr>
+                        <th id="gameaddressInfo2">Game Contract Address</th>
+                        <th id="contractadminInfo2">Contract Owner</th>
+                        <th id="deployTime2">Deployment Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </div>
+            <button id="refreshButton">Refresh</button>
+            <div class="separator"></div>
+            <footer>
+                <p id="footerText">© 2024 Bubble Wand - Powered by<a href="https://singularitylab.top" class="styled-link" id="goglink">Singularity Lab</a>.</p>
+            </footer>
+    </div>
+
+    <script>
+        let currentLanguage = 'en';
+        let web3;
+        let factoryContract;
+        let currentChainId;
+        const textContent = {
+            en: {
+                factoryTitle: "Create Your Dice Game",
+                minBetLabel: "Minimum Bet (ETH / BNB / POL):",
+                minWithdrawLabel: "Minimum Withdraw (ETH / BNB / POL):",
+                maxShareholdersLabel: "Maximum Shareholders(1-50):",
+                maxDepositLabel: "Maximum Deposit (ETH / BNB / POL):",
+                adminModeLabel: "Choose Game Type:",
+                decentralizedGameLabel: "Decentralized Game(No Admin)",
+                adminGameLabel: "I Want to Be the Admin",
+                deployGameButton: "Deploy Game",
+                DeployedTitle: "Deployment Results",
+                gameaddressInfo: "Game Address",
+                contractadminInfo: "Contract Owner",
+                adminFeeLabel: "Set the commission charged by the administrator for each transaction (%):",
+                networkLabel: "Select Deployment Network:",
+                downloadFrontend: "Download Frontend",
+                deployTime: "Deployment Time",
+                myDiceTitle: "My DiceGame",
+                gameaddressInfo2: "Game Contract Address",
+                contractadminInfo2: "Contract Owner",
+                deployTime2: "Deployment Time",
+                needHelp: "Need Help?",
+                refreshButton: "Refresh"
+            },
+            zh: {
+                factoryTitle: "创建属于您的骰子游戏",
+                minBetLabel: "最小投注金额 (ETH / BNB / POL):",
+                minWithdrawLabel: "最小提现金额 (ETH / BNB / POL):",
+                maxShareholdersLabel: "最大股东数(1-50):",
+                maxDepositLabel: "最大存款金额 (ETH / BNB / POL):",
+                adminModeLabel: "选择游戏类型:",
+                decentralizedGameLabel: "创建去中心化游戏（无管理员）",
+                adminGameLabel: "我要做游戏管理员",
+                deployGameButton: "开始部署",
+                DeployedTitle: "部署结果",
+                gameaddressInfo: "游戏合约地址",
+                contractadminInfo: "合约管理员",
+                adminFeeLabel: "设置每笔交易管理员收取手续费 (%):",
+                networkLabel: "选择你要部署的网络:",
+                downloadFrontend: "前端代码下载",
+                deployTime: "部署时间",
+                myDiceTitle: "我的骰子游戏",
+                gameaddressInfo2: "游戏合约地址",
+                contractadminInfo2: "合约管理员",
+                deployTime2: "部署时间",
+                needHelp: "技术支持",
+                refreshButton: "刷新"
+            },
+        };
+
+        if (typeof web3 !== "undefined") {
+            web3 = new Web3(web3.currentProvider);
+        } else {
+            //alert("MetaMask is required to use this DApp");
+        }
+
+        function switchLanguage(lang) {
+            currentLanguage = lang;
+            const content = textContent[lang];
+            document.getElementById("factoryTitle").innerText = content.factoryTitle;
+            document.getElementById("minBetLabel").innerText = content.minBetLabel;
+            document.getElementById("minWithdrawLabel").innerText = content.minWithdrawLabel;
+            document.getElementById("maxShareholdersLabel").innerText = content.maxShareholdersLabel;
+            document.getElementById("maxDepositLabel").innerText = content.maxDepositLabel;
+            document.getElementById("adminModeLabel").innerText = content.adminModeLabel;
+            document.getElementById("decentralizedGameLabel").innerText = content.decentralizedGameLabel;
+            document.getElementById("adminGameLabel").innerText = content.adminGameLabel;
+            document.getElementById("deployGameButton").innerText = content.deployGameButton;
+            document.getElementById("DeployedTitle").innerText = content.DeployedTitle;
+            document.getElementById("gameaddressInfo").innerText = content.gameaddressInfo;
+            document.getElementById("contractadminInfo").innerText = content.contractadminInfo;
+            document.getElementById("adminFeeLabel").innerText = content.adminFeeLabel;
+            document.getElementById("networkLabel").innerText = content.networkLabel;
+            document.getElementById("downloadFrontend").innerText = content.downloadFrontend;
+            document.getElementById("deployTime").innerText = content.deployTime;
+            document.getElementById("myDiceTitle").innerText = content.deployTime;
+            document.getElementById("gameaddressInfo2").innerText = content.gameaddressInfo2;
+            document.getElementById("contractadminInfo2").innerText = content.gameaddressInfo2;
+            document.getElementById("deployTime2").innerText = content.deployTime2;
+            document.getElementById("needHelp").innerText = content.needHelp;
+            document.getElementById("refreshButton").innerText = content.refreshButton;
+        }
+
+        async function deployDestinyDice() {
+            const selectedNetwork = document.querySelector('input[name="network"]:checked').value;
+            const network = networkConfig[selectedNetwork];
+
+            if (!window.ethereum) {
+                //alert("MetaMask is required to use this DApp");
+                return;
+            }
+
+            web3 = new Web3(window.ethereum);
+            factoryContract = new web3.eth.Contract(factoryABI, network.address);
+            const accounts = await web3.eth.requestAccounts();
+
+            
+            currentChainId = await web3.eth.getChainId();
+            if (currentChainId !== parseInt(network.chainId)) {
+                try {
+                    await window.ethereum.request({
+                        method: "wallet_switchEthereumChain",
+                        params: [{ chainId: "0x" + parseInt(network.chainId).toString(16) }],
+                    });
+                } catch (error) {
+                    console.error("Failed to switch network:", error);
+                    return;
+                }
+            }
+
+            
+            const minBet = web3.utils.toWei(document.getElementById("minBet").value, "ether");
+            const minWithdraw = web3.utils.toWei(document.getElementById("minWithdraw").value, "ether");
+            const maxShareholders = document.getElementById("maxShareholders").value;
+            const maxDeposit = web3.utils.toWei(document.getElementById("maxDeposit").value, "ether");
+            const adminFee = document.querySelector('input[name="adminFee"]:checked').value;
+            const adminAddress = document.querySelector('input[name="gameMode"]:checked').value === "admin"
+                ? accounts[0]
+                : "0x0000000000000000000000000000000000000000";
+
+            const createFee = await factoryContract.methods.getCreateFee().call();
+            const options = { from: accounts[0] };
+
+            if (adminAddress !== "0x0000000000000000000000000000000000000000") {
+                options.value = createFee; 
+            }
+
+            try {
+                const tx = await factoryContract.methods
+                    .createDestinyDice(minBet, minWithdraw, maxShareholders, maxDeposit, adminFee, adminAddress)
+                    .send(options);
+
+                console.log("Transaction successful:", tx);
+                alert("Game deployed successfully!");
+
+                
+                const newContractAddress = tx.events.NewDestinyDice.returnValues.newContract;
+                const depolyTime = tx.events.NewDestinyDice.returnValues.timestamp;
+                addDeployedGame(newContractAddress, adminAddress, depolyTime);
+
+            } catch (error) {
+                console.error("Failed to deploy game:", error);
+                alert("Deployment failed. See console for details.");
+            }
+        }
+
+        function addDeployedGame(gameAddress, admin, depolyTime) {
+            const tableBody = document.getElementById("deployedContractsTable").querySelector("tbody");
+            if (tableBody.querySelector("tr").cells.length === 2) {
+                tableBody.innerHTML = "";
+            }
+
+            const newRow = tableBody.insertRow();
+            const addressCell = newRow.insertCell(0);
+            const adminCell = newRow.insertCell(1);
+            const downloadCell = newRow.insertCell(2);
+            const dTime = newRow.insertCell(3);
+
+            addressCell.textContent = gameAddress;
+            adminCell.textContent = admin === "0x0000000000000000000000000000000000000000" ? "Decentralized" : admin;
+            dTime.textContent = new Date(Number(depolyTime) * 1000).toLocaleString();
+
+            const selectedNetwork = document.querySelector('input[name="network"]:checked').value;
+            const downloadLink = document.createElement("a");
+            downloadLink.href = networkConfig[selectedNetwork].frontendCodePath;
+            downloadLink.textContent = currentLanguage === 'en' ? "Download" : "下载";
+            downloadLink.target = "_blank";
+            downloadLink.className = "styled-link";
+            downloadLink.id = "downloadLink";
+            downloadCell.appendChild(downloadLink);
+        }
+
+        
+        async function listenForDiceEvents() {
+            try {
+                
+                web3 = new Web3(window.ethereum);
+
+                
+                const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+                currentAddress = accounts[0]; 
+
+                selectedNetwork = document.querySelector('input[name="network"]:checked').value;
+                network = networkConfig[selectedNetwork];
+                factoryContract = new web3.eth.Contract(factoryABI, network.address);
+
+                const latestBlock = await web3.eth.getBlockNumber();
+                let fromBlock = latestBlock - 100000;
+                if (fromBlock < 0) {
+                    fromBlock = 0;
+                }
+
+                
+                const events = await factoryContract.getPastEvents('NewDestinyDice', {
+                    fromBlock: fromBlock,
+                    toBlock: 'latest'
+                });
+
+                
+                events.forEach(event => {
+                    const { admin, newContract, timestamp } = event.returnValues;
+                    if (admin && currentAddress) {
+                        
+                        if (admin.toLowerCase() === currentAddress.toLowerCase()) {
+                            
+                            const deployTime2 = new Date(timestamp * 1000).toLocaleString();
+
+                            
+                            const table = document.getElementById("myDiceTable").getElementsByTagName('tbody')[0];
+                            const row = table.insertRow();
+                            row.insertCell(0).textContent = newContract;
+                            row.insertCell(1).textContent = admin;
+                            row.insertCell(2).textContent = deployTime2;
+                        } else {
+                            console.log("Admin doesn't match currentAddress.");
+                        }
+                    } else {
+                        console.error("Admin or currentAddress is undefined or invalid.");
+                    }
+                });
+            } catch (err) {
+                console.error("Error in listenForDiceEvents:", err);
+            }
+        }
+
+        window.addEventListener("load", function() {
+            if (typeof window.ethereum !== "undefined") {
+                
+                web3 = new Web3(window.ethereum);
+                
+                window.ethereum.request({ method: "eth_requestAccounts" })
+                    .then(accounts => {
+                        
+                        let currentAddress = accounts[0];
+                        console.log("Connected account:", currentAddress);
+                    })
+                    .catch(error => {
+                        console.error("User denied account access", error);
+                    });
+                listenForDiceEvents();
+            } else {
+                console.log("MetaMask is not installed or window.ethereum is not available.");
+                
+            }
+        });
+
+        document.getElementById("refreshButton").addEventListener("click", listenForDiceEvents);
+
+    </script>
+</body>
+</html>

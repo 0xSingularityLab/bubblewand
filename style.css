@@ -1,0 +1,374 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('assets/bg.jpg'); /* 背景图像的路径 */
+    background-size: cover; /* 让图片自动缩放以覆盖整个页面 */
+    background-repeat: no-repeat; /* 防止背景图重复 */
+    background-position: center; /* 将背景图居中 */
+    font-size: 16px; /* 默认字体大小 */
+    
+    font-family: 'Arial', sans-serif;
+    background-color: #1a1a1a; /* 暗黑背景颜色 */
+    color: #e0e0e0; /* 浅色文字颜色 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    padding: 20px;
+    background-color: #2c2c2c;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    text-align: center;
+    word-wrap: break-word; /* 自动换行 */
+    overflow-wrap: break-word; /* 针对长单词进行换行 */
+}
+
+#description{
+    font-size: 1.5rem;
+}
+
+.card {
+    margin: 20px 0;
+    padding: 20px;
+    font-size: 1.5rem;
+    border-radius: 8px;
+    background-color: #3c3c3c;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    word-wrap: break-word; /* 自动换行 */
+    overflow-wrap: break-word; /* 长单词换行 */
+}
+
+
+header h1 {
+    font-size: 2.5rem; /* 增大标题字体 */
+    color: #4CAF50; /* 可以保持或修改颜色 */
+    margin-bottom: 20px;
+}
+
+.card h2 {
+    font-size: 1.8rem; /* 增大卡片标题字体 */
+    color: #e0e0e0; /* 浅色文字颜色 */
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-size: 1.5rem; /* 增大卡片标题字体 */
+    color: #e0e0e0; /* 浅色文字颜色 */
+    margin-bottom: 15px;
+}
+
+.card input, .card button {
+    width: 80%; /* 保持输入框和按钮宽度 */
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+.card button {
+    font-size: 1.5rem;
+    background-color: #4CAF50;
+    color: white;
+}
+
+.card button:hover {
+    background-color: #45a049;
+}
+
+
+.separator {
+    margin: 20px 0;
+    height: 2px;
+    background-color: #ddd;
+}
+
+.language-switcher {
+    margin-bottom: 20px;
+}
+
+.language-switcher button {
+    width: 100px;  /* 设置统一的宽度，可以根据需要调整 */
+    height: 40px;  /* 设置统一的高度 */
+    padding: 5px;  /* 设置内边距，让内容更居中 */
+    font-size: 1.25rem;  /* 统一字体大小 */
+    background-color: #4CAF50;  /* 按钮的背景色，可以根据需要修改 */
+    color: white;  /* 字体颜色 */
+    border: none;  /* 移除边框 */
+    border-radius: 5px;  /* 设置圆角 */
+    cursor: pointer;  /* 鼠标悬停时显示为手形 */
+    display: inline-block;  /* 保持按钮的水平排列 */
+}
+
+.language-switcher button:hover {
+    background-color: #45a049;  /* 悬停时的背景色变化 */
+}
+
+/* 设置骰子的容器为flex布局，让骰子图片水平排列 */
+#diceContainer {
+    display: flex;
+    justify-content: center; /* 图片居中 */
+    align-items: center;
+    gap: 10px; /* 图片之间的间距 */
+    margin-top: 20px;
+}
+
+/* 调整骰子图片的大小 */
+.dice-img {
+    width: 100px;  /* 你可以根据需要调整宽度 */
+    height: 100px; /* 高度和宽度保持一致 */
+    object-fit: contain;  /* 确保图片不失真 */
+}
+
+#diceImage {
+    width: 100px;
+    height: 100px;
+    /*animation: rollDice 10s infinite;*/
+}
+
+/*
+@keyframes rollDice {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+*/
+
+.stopAnimation {
+    animation: none;
+}
+
+#betResult  {
+    font-size: 24px; /* 调整为你需要的字体大小 */
+    font-weight: bold; /* 如果想让文字更醒目，增加字体粗细 */
+    color: #e0e0e0; /* 你也可以根据需要调整颜色 */
+    text-align: center; /* 如果想让文字居中显示 */
+    margin-top: 20px; /* 调整与其他元素的间距 */
+}
+
+#betResultLabel {
+    font-size: 24px; /* 调整为你需要的字体大小 */
+    font-weight: bold; /* 如果想让文字更醒目，增加字体粗细 */
+    color: #e0e0e0; /* 你也可以根据需要调整颜色 */
+    text-align: center; /* 如果想让文字居中显示 */
+    margin-top: 20px; /* 调整与其他元素的间距 */
+}
+
+p.long-text {
+    white-space: nowrap; /* 不换行 */
+    overflow: hidden; /* 超出部分隐藏 */
+    text-overflow: ellipsis; /* 显示省略号 */
+    max-width: 100%; /* 让其不会超出屏幕宽度 */
+}
+
+/* 针对手机端屏幕的优化 */
+@media only screen and (max-width: 600px) {
+    body {
+        padding: 10px;
+        font-size: 16px; /* 调整文字大小 */
+    }
+
+    .container {
+        width: 100%; /* 全屏显示 */
+        padding: 15px; /* 减少边距 */
+    }
+
+    header h1 {
+        font-size: 1.8rem; /* 调整标题大小 */
+    }
+
+    .card h2 {
+        font-size: 1.4rem; /* 调整卡片标题大小 */
+    }
+
+    .card input, .card button {
+        width: 90%; /* 增加输入框和按钮的宽度 */
+        font-size: 1rem;
+    }
+    
+    p.long-text {
+        font-size: 0.9rem; /* 在移动设备上调整文字大小 */
+    }
+}
+
+
+#randomImagesContainer {
+    position: fixed;
+    height: 100vh; /* 使容器高度为视口高度 */
+    width: 100vw; /* 容器宽度为整个视口宽度 */
+}
+
+#randomImagesContainer img {
+    position: fixed;
+    width: 100px;
+    height: auto;
+    z-index: 1; /* 确保图片位于较低层 */
+}
+
+.container, input, button {
+    position: relative;
+    z-index: 10; /* 确保主要内容在更高层 */
+}
+
+/* 按钮被禁用时的状态 */
+button:disabled {
+    background-color: #57b570; /* 被禁用时的背景色 */
+    color: #e0e0e0; /* 被禁用时的文字颜色 */
+    cursor: not-allowed; /* 鼠标指针变成禁止状态 */
+}
+
+
+.collapsible-header {
+    cursor: pointer;
+    user-select: none;
+    background-color: #4CAF50; /* 深灰色背景 */
+    color: #fff; /* 白色文本 */
+    padding: 10px;
+    border: 1px solid #444444;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.collapsible-header:hover {
+    background-color: #26893b; /* 浅灰色背景 */
+}
+
+/* 滑块轨道样式 */
+#winRateSlider {
+    margin-top: 20px;
+    -webkit-appearance: none; /* 去掉默认样式 */
+    width: 100%; /* 调整宽度 */
+    height: 10px; /* 轨道高度 */
+    background: linear-gradient(to right, #ff0000 10%, #888 90%, #00ff00 100%); /* 设置0-10%、90%-100%区间颜色 */
+    border-radius: 10px; /* 轨道圆角 */
+    outline: none; /* 去掉聚焦样式 */
+    opacity: 0.9; /* 不透明度 */
+    transition: opacity 0.2s; /* 平滑过渡效果 */
+}
+
+#winRateSlider:hover {
+    opacity: 1; /* 鼠标悬浮时透明度 */
+}
+
+/* Chrome, Safari, Opera 滑块 */
+#winRateSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 50px; /* 滑块宽度 */
+    height: 50px; /* 滑块高度 */
+    background: #4CAF50; /* 滑块颜色 */
+    border-radius: 50%; /* 圆形滑块 */
+    cursor: pointer;
+}
+
+/* Firefox 滑块 */
+#winRateSlider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #4CAF50; /* 滑块颜色 */
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* 轨道颜色设置 - Firefox */
+#winRateSlider::-moz-range-track {
+    background: linear-gradient(to right, #ff0000 10%, #888 90%, #00ff00 100%);
+    height: 10px;
+    border-radius: 10px;
+}
+
+/* 轨道颜色设置 - Internet Explorer */
+#winRateSlider::-ms-track {
+    background: linear-gradient(to right, #ff0000 10%, #888 90%, #00ff00 100%);
+    height: 10px;
+    border-radius: 10px;
+    border: none; /* 去掉边框 */
+    color: transparent; /* 去掉默认的颜色 */
+}
+
+/* 在手机模式下调整骰子的图片大小 */
+@media (max-width: 768px) {
+    #diceContainer img.dice-img, #diceImage {
+        width: 60px;  /* 调整骰子图片的宽度 */
+        height: 60px; /* 调整骰子图片的高度 */
+    }
+}
+
+.combined-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;  /* 让元素自动换行 */
+    margin-bottom: 15px;
+}
+
+.combined-item {
+    flex: 1;  /* 让每个格子平分宽度 */
+    padding: 10px;
+    background-color: #3c3c3c;  /* 格子的背景颜色 */
+    border: 2px solid #4CAF50;  /* 格子的边框颜色 */
+    border-radius: 5px;  /* 圆角 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);  /* 添加一些阴影使得更立体 */
+    text-align: center;  /* 文字居中 */
+}
+
+.styled-link {
+    color: #007bff; /* 设置链接的默认颜色为蓝色 */
+    text-decoration: none; /* 去除默认的下划线 */
+    margin: 0 10px; /* 每个链接之间的左右间距，使它们有空隙 */
+    font-weight: bold; /* 设置字体加粗 */
+    transition: color 0.3s ease, text-shadow 0.3s ease; /* 平滑的颜色和阴影变化 */
+}
+
+.styled-link:hover {
+    color: #0056b3; /* 鼠标悬停时变为深蓝色 */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* 增加悬停时的文字阴影效果 */
+    text-decoration: underline; /* 悬停时显示下划线 */
+}
+
+.admin-fee-options {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* 水平居中对齐 */
+    gap: 15px; /* 控制各选项之间的整体间距 */
+}
+
+.admin-fee-options label {
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.admin-fee-options input[type="radio"] {
+    transform: scale(1.5);
+    margin-right: 8px; /* 控制单选按钮和文字之间的距离 */
+    width: 15px; /* 调整宽度 */
+    height: 15px; /* 调整高度 */
+}
+
+
+@media only screen and (max-width: 600px) {
+    .combined-item {
+        width: 100%;  /* 在移动端设备上每个格子占满整行 */
+        margin-bottom: 10px;  /* 增加行之间的间距 */
+        padding: 8px;  /* 减少内边距 */
+        font-size: 0.9rem;  /* 缩小字体 */
+    }
+    .combined-row {
+        flex-direction: column;  /* 在小屏幕设备上，项目垂直排列 */
+    }
+    
+    body {
+        font-size: 14px;  /* 缩小整体字体大小 */
+    }
+}
+
+
+
+
