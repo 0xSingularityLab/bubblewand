@@ -61,3 +61,11 @@ USDT版游戏网址：https://dicegame.bet/g/pol/usdt/index.html
 如果你要自定义程度更高的教程，请阅读我们的详细教程：https://medium.com/@singularitylab/30%E7%A7%92%E5%85%8D%E8%B4%B9%E5%88%9B%E5%BB%BA%E4%BD%A0%E7%9A%84%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96web3%E5%8C%BA%E5%9D%97%E9%93%BE%E9%AA%B0%E5%AD%90%E6%B8%B8%E6%88%8F-e9dcd128b961
 
 如果有任何问题，或者有合作意向，可以通过Telegram或者邮箱与我们联系。
+
+#### 引流
+一键创建你的Web3赌场
+一键创建你的区块链赌场
+一键创建你的骰子游戏
+一键创建你的赌博游戏
+一键创建你的区块链骰子
+一键创建你的Web3骰子
