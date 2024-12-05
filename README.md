@@ -1,6 +1,10 @@
+[中文教程]([https://github.com](https://github.com/0xSingularityLab/bubblewand/blob/main/README_ZH.md))
+
 ## Create Your Decentralized Web3 Dice Game in 30 Seconds for Free
 
-Many people want to create their own Web3 blockchain casino but are often stopped by the difficulty of coding. Now, with the Bubble Wand Launcher developed by Singularity Lab, you can easily create your own blockchain dice game in just 30 seconds. The game supports seamless switching between English and Chinese, and includes player functions such as betting, auto-betting, and sitting as the house (allowing players to become shareholders). It also includes admin features like setting transaction fees (for the game creator), global maintenance switches, deposit switches, betting switches, transferring admin rights, admin withdrawals, and deleting shareholders.
+Many people want to create their own Web3 blockchain casino but are often stopped by the difficulty of coding. 
+
+Now, with the Bubble Wand Launcher developed by Singularity Lab, you can easily create your own blockchain dice game in just 30 seconds. The game supports seamless switching between English and Chinese, and includes player functions such as betting, auto-betting, and sitting as the house (allowing players to become shareholders). It also includes admin features like setting transaction fees (for the game creator), global maintenance switches, deposit switches, betting switches, transferring admin rights, admin withdrawals, and deleting shareholders.
 
 The dice game contract has undergone strict security audits, ensuring it is a fully fair on-chain dice game.
 
