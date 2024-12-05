@@ -2,6 +2,8 @@
 
 [Bubble Wand LaunchPad](https://bubblewand.xyz/) | [Game Demo](https://dicegame.bet/) 
 
+[Telegram](https://t.me/slabdao)  | [Email](mailto:singularitylab@tuta.io) 
+
 ============================================
 
 ## Create Your Decentralized Web3 Dice Game in 30 Seconds for Free
@@ -39,17 +41,22 @@ Open https://dicegame.bet/g/base/eth/index.html and enter your game contract add
 
 Note: Please use the corresponding game URL based on the network you deployed to:
 
-Base Network:
+#### Base Network:
 ETH version game URL: https://dicegame.bet/g/base/eth/index.html
+
 USDT version game URL: https://dicegame.bet/g/base/usdt/index.html
 
-BSC Network:
+#### BSC Network:
 ETH version game URL: https://dicegame.bet/g/bnb/bnb/index.html
+
 USDT version game URL: https://dicegame.bet/g/bnb/usdt/index.html
 
-Polygon Network:
+#### Polygon Network:
 ETH version game URL: https://dicegame.bet/g/pol/pol/index.html
+
 USDT version game URL: https://dicegame.bet/g/pol/usdt/index.html
 
 If you need a more customizable guide, please refer to our detailed tutorial: 
 https://medium.com/@singularitylab/create-your-decentralized-web3-dice-game-in-30-seconds-for-free-2bcd97d1ee62
+
+If you have any questions or are interested in collaboration, you can contact us via Telegram or email.

@@ -2,6 +2,8 @@
 
 [泡泡棒发射台](https://bubblewand.xyz/) | [游戏演示站](https://dicegame.bet/) 
 
+[Telegram](https://t.me/slabdao)  | [Email](mailto:singularitylab@tuta.io) 
+
 ============================================
 
 ## 30秒即可免费创建你的去中心化Web3区块链骰子赌博游戏
@@ -35,22 +37,27 @@
 
 ### 第三步
 
-打开https://dicegame.bet/g/base/eth/index.html，在“合约地址”中填写你的游戏合约，即可立刻开始游戏。作为游戏管理员，你可以对游戏进行一切设置。如图3所示。
+打开https://dicegame.bet/g/base/eth/index.html ，在“合约地址”中填写你的游戏合约，即可立刻开始游戏。作为游戏管理员，你可以对游戏进行一切设置。如图3所示。
 
 ![](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*ysVT_zWyfuhxpk23VdKnIw.png)
 
 注意，请按照你部署的网络来访问对应的游戏网址：
 
-Base网络：
+#### Base网络：
 ETH版游戏网址：https://dicegame.bet/g/base/eth/index.html
-USDT版游戏网址https://dicegame.bet/g/base/usdt/index.html
 
-BSC网络：
+USDT版游戏网址：https://dicegame.bet/g/base/usdt/index.html
+
+#### BSC网络：
 ETH版游戏网址：https://dicegame.bet/g/bnb/bnb/index.html
-USDT版游戏网址https://dicegame.bet/g/bnb/usdt/index.html
 
-Polygon网络：
+USDT版游戏网址：https://dicegame.bet/g/bnb/usdt/index.html
+
+#### Polygon网络：
 ETH版游戏网址：https://dicegame.bet/g/pol/pol/index.html
-USDT版游戏网址https://dicegame.bet/g/pol/usdt/index.html
+
+USDT版游戏网址：https://dicegame.bet/g/pol/usdt/index.html
 
 如果你要自定义程度更高的教程，请阅读我们的详细教程：https://medium.com/@singularitylab/30%E7%A7%92%E5%85%8D%E8%B4%B9%E5%88%9B%E5%BB%BA%E4%BD%A0%E7%9A%84%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96web3%E5%8C%BA%E5%9D%97%E9%93%BE%E9%AA%B0%E5%AD%90%E6%B8%B8%E6%88%8F-e9dcd128b961
+
+如果有任何问题，或者有合作意向，可以通过Telegram或者邮箱与我们联系。
