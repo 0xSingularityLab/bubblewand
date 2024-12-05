@@ -1,5 +1,7 @@
 [English](https://github.com/0xSingularityLab/bubblewand/blob/main/README.md) | [中文教程](https://github.com/0xSingularityLab/bubblewand/blob/main/README_ZH.md)
 
+[泡泡棒发射台(https://bubblewand.xyz/) | [游戏演示站](https://dicegame.bet/) 
+
 ============================================
 
 ## 30秒即可免费创建你的去中心化Web3区块链骰子赌博游戏
