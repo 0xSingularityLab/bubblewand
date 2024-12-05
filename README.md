@@ -1,4 +1,4 @@
-[中文教程]([https://github.com](https://github.com/0xSingularityLab/bubblewand/blob/main/README_ZH.md))
+[中文教程]([https://github.com](https://github.com/0xSingularityLab/bubblewand/blob/main/README_ZH.md)
 
 ## Create Your Decentralized Web3 Dice Game in 30 Seconds for Free
 
