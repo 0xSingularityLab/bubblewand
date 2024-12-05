@@ -25,7 +25,7 @@ https://medium.com/@singularitylab/create-your-decentralized-web3-dice-game-in-3
 ### Game Creation Tutorial
 ============================================
 ### Step 1
-Visit the Bubble Wand Launchpad website at https://bubblewand.xyz or https://pods.icu, and choose the type of dice game you want to create based on your needs. In this guide, we will demonstrate how to create an ETH dice game, as shown in Figure 1.
+Visit the Bubble Wand Launchpad website at https://bubblewand.xyz or https://pods.icu , and choose the type of dice game you want to create based on your needs. In this guide, we will demonstrate how to create an ETH dice game, as shown in Figure 1.
 
 ![](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*ZbrtlEBqJ8EbWzZ-jOi9Lg.png)
 

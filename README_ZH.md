@@ -25,7 +25,7 @@
 
 ### 第一步
 
-访问泡泡棒发射台网站https://bubblewand.xyz 或者https://pods.icu，按照你的需求选择想创建的骰子游戏类型，这里我们以创建ETH骰子游戏作为演示，如图1所示。
+访问泡泡棒发射台网站https://bubblewand.xyz 或者https://pods.icu ，按照你的需求选择想创建的骰子游戏类型，这里我们以创建ETH骰子游戏作为演示，如图1所示。
 
 ![](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*n_-oL0aN1MUhEaAExX_59g.png)
 
