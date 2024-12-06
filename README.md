@@ -4,6 +4,8 @@
 
 [Telegram](https://t.me/slabdao)  | [Email](mailto:singularitylab@tuta.io) 
 
+This is a blockchain dice game launchpad based on Ethereum.Let's make Ethereum great again!
+
 ============================================
 
 ## Create Your Decentralized Web3 Dice Game in 30 Seconds for Free
